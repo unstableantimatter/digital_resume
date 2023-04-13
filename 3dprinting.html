@@ -13,47 +13,103 @@
 
         <a href="index.html">&#x2190; Go Back</a>
         <h1>Matter Hackers COVID Response</h1>
-        <h2>3D Printing PPE for frontline workers</h2>
+        <h3>3D Printing PPE for frontline workers</h3>
         <p>At the time COVID hit the US, I was looking for new efforts to pursue that wouldn't be interreupted during a lockdock.
             I was luck enough to stumble upon some 3D printing blogs and fall down that rabbit-hole a few months before any serious
              supply chain issues. Fall 2019, in my 1 bedroom Philadelphia apartment, I built my first 
              <a href = "https://www.prusa3d.com/">Prusa MK3S Printer.</a> 
         </p>
+        <h2>Build Gallery</h2>
+            <div id="gallery">
+                <p>1-Unboxed and truly intimidated<img src="./assets/images/print/image1.jpg"></p>
+                <p>2-A very thick manual<img src="./assets/images/print/image2.JPG"></p>
+                <p>3-Frame assembly<img src="./assets/images/print/image3.JPG"></p>
+                <p>4-Print-bed assembled<img src="./assets/images/print/image4.JPG"></p>
+                <p>5-Finished product<img src="./assets/images/print/image5.JPG"></p>
+            </div>
         <p>
-            I quickly connected with several Maker communities and twitter accounts to boost my self-learning with some tips and tricks.
-             This type of endevour does not need to be suffered through when there is a wealth of information already in existance to 
-             boost productivity. We were off and running, printing anything that caught my eye. I was even utilizing the 3D printer for 
-             rapid prototyping with a small jewelry business I was starting at the time. This cut my R&D costs significantly and allowed
-              me to print dozens of prospective products in near real-time. 
+            A few months into the venture, COVID cases were spiking and hospitals were over-run with patients while front-line workers were suffering
+             from a lack of resources and PPE. My center city apartment building was home to dozens of nurses and doctors in the Philadelphia area and 
+            I heard about the struggle on a daily basis. Through the <a href="https://www.matterhackers.com/covid-19">Matter Hackers</a> community 
+            I learned that maker communities were coming together to help get printed PPE into the hands of front-line workers. So, I downloaded some 
+            designs and fired up my printer to see what I could do.
         </p>
+        <div id="gallery">
+            <p>Surgical Mask Comfort Strap<img src="https://lh3.googleusercontent.com/ykBMfrEZLjBMw5iWw7IW3zbBEqCw5jk2_oPVkhMRxNfmQ2uBBVTdqByXStZqEen2AGdwg7Pom0GCO_hGjkPtw2Uh=w900-h675-p-rw-e365">
+            Designed to go behind the head and allow for adjustable surgical mask attachment to prevent ear pain and discomfort.</p>
+            <p>Protective Face Shield  (Newer Design)<img src="https://lh3.googleusercontent.com/qny-IW0VZVfORmqJ4Uyc99nU3mVUW83947HgRizZsUdeVytRiW9oM_dBM31fxEaTwGsYNqeO2UBIxwp9z54GVv64=w900-h675-p-rw-e365">
+            The face shield has a sheet of clear laminating paper attached to the hood and is worn on ones head to act as a solid barrier over the face and prevent direct exposure with sick patients.</p>
+        </div>
+        <div id="gallery">
+            <p>First Delivery: 13 Face shields & 20 Surgical mask comfort straps<img src="./assets/images/print/image6.JPG"> I was able to pack them up and deliver them to hospital workers in my building to 
+                get them in use immediately.
+            </p>
+            <p>There was also a design for a printable N95 mask circulating but after the first print I could tell the design needed some work and was not front-line ready.
+                It required custom molding to the wearers face, and an additional filter which I had no way of procuring at the time.
+            </p>
+            <img src="./assets/images/print/image7.JPG">
+        </div>
         <p>
-            A few months into the venture COVID was peaking, hospitals were over-run with patients and front-line workers were suffering.
-            I happened to live in an apartment building in Center City Philadelphia with several medical schools in the area and many of 
-            my neighbors in resident programs or working in hospitals and I could saw the struggle daily.</p>
-        <p>    
-            Several maker communities started sharing designs for face shields and N-95 mask filters and I immediately answered the call 
-            for help. After a few calibration prints, I had my single MK3S up and running printing faceshields around the clock. I was 
-            able to get these shields printed and distributed to local hospitals on a daily basis. 
+            I learned a lot from this endevour. It was a fantastic way to get deep into the 3D printing industry very quickly. I was able to develop a more complete understanding of this printer types limitations within the scope of manufacturing. 
+            Not long after, papers were published regarding the use of 3D printed PPE for the COVID-19 response and much of my own learnings were corroberated. It gave me a tremendous sense of pride to know I was able to help out my neighbors while 
+            being trapped inside during quarantine. 
         </p>
     <ul>
-        <li><a href ="#" target="_blank">Image Gallery</a></li>
-        <li><a href ="#" target="_blank">Samples</a></li>
+        <li><a href ="https://link.springer.com/article/10.1007/s10439-021-02859-z#Abs1" target="_blank">Annals of Biomedical Engineering Article
+            - PPE for frontline workers
+        </a></li>
     </ul>
-
-    <p> What was learned during the project </p>
-
-        <p>Supply chain issues are not easily predictable</p>
-        <ul>
-            <li>Nozzle cleanliness is key to consistent prints</li>
-            <li>Keeping the print bed clean and using a glue stick can increase first layer print quality</li>
-            <li>Lubing the shaft is incredibly important to ensure a smooth print experience</li>
-        </ul>
-
-
+    <a href="index.html">&#x2190; Go Back</a>
     </div>
 
-  
 
+    <script>
+		let darkBoxVisible = false;
+
+		window.addEventListener('load', (event) => {
+			let images = document.querySelectorAll("img");
+			if(images !== null && images !== undefined && images.length > 0) {
+				images.forEach(function(img) {
+					img.addEventListener('click', (evt) => {
+						showDarkbox(img.src);
+					});
+				});
+			}
+		});
+
+		function showDarkbox(url) {
+			if(!darkBoxVisible) {
+				let x = (window.innerWidth - 1280) / 2;
+				let y = window.scrollY + 50;
+
+				// Create the darkBox
+				var div = document.createElement("div");
+				div.id = "darkbox";
+				div.innerHTML = '<img class="darkboximg" src="'+url+'" />';
+				document.body.appendChild(div);
+				let box = document.getElementById("darkbox");
+				box.style.left = x.toString()+"px";
+				box.style.top = y.toString()+"px";
+				box.style.height = 'auto';
+				box.addEventListener('click', (event) => {
+					// Remove it
+					let element = document.getElementById("darkbox");
+					element.parentNode.removeChild(element);
+
+					darkBoxVisible = false;
+				})
+
+				darkBoxVisible = true;
+
+			} else {
+				// Remove it
+				let element = document.getElementById("darkbox");
+				element.parentNode.removeChild(element);
+
+				darkBoxVisible = false;
+			}
+		}
+		</script>
 </body>
 </html>
 
